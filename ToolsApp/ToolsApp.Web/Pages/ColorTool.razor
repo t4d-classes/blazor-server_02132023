@@ -1,8 +1,5 @@
 ﻿@page "/color-tool"
 
-@using ToolsApp.Core.Interfaces.Models
-@using ToolsApp.Models
-
 <header>
   <h3>Color Tool</h3>
 </header>
@@ -14,7 +11,23 @@
   }
 </ul>
 
+<form>
+  <label>
+    Name:
+    <input type="text" @bind="colorForm.Name" />
+  </label>
+  <label>
+    Hex Code:
+    <input type="text" @bind="colorForm.HexCode" />
+  </label>
+  <button type="button" @onclick="@addColor">Add Color</button>
+</form>
+
+
+
 @code {
+
+  private ColorFormModel colorForm = new();
 
   private List<IColor> colors = new List<IColor>()
   {
@@ -22,5 +35,23 @@
     new Color { Id = 2, Name = "green", HexCode="00ff00"},
     new Color { Id = 3, Name = "blue", HexCode="0000ff"},
   };
+
+  private void addColor()
+  {
+    var color = new Color()
+      {
+        Id = colors.Any() ? colors.Max(c => c.Id) + 1 : 1,
+        Name = colorForm.Name,
+        HexCode = colorForm.HexCode
+      };
+      colors.Add(color);
+      colorForm = new();
+  }
+
+  class ColorFormModel
+  {
+    public string Name { get; set; }
+    public string HexCode { get; set; }
+  }
 
 }
