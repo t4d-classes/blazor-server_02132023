@@ -1,8 +1,6 @@
 ﻿@page "/color-tool"
 
-<header>
-  <h3>Color Tool</h3>
-</header>
+<ToolHeader HeaderText="@myHeader"></ToolHeader>
 
 <ul>
   @foreach(var color in colors)
@@ -23,9 +21,9 @@
   <button type="button" @onclick="@addColor">Add Color</button>
 </form>
 
-
-
 @code {
+
+  private string myHeader = "Color Tool";
 
   private ColorFormModel colorForm = new();
 

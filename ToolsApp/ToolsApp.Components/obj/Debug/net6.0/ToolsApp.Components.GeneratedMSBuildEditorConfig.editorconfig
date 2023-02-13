@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\EricGreene\source\repos\blazor-server_02132023\ToolsApp\ToolsApp.Components
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/EricGreene/source/repos/blazor-server_02132023/ToolsApp/ToolsApp.Components/Shared/ToolHeader.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFRvb2xIZWFkZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/EricGreene/source/repos/blazor-server_02132023/ToolsApp/ToolsApp.Components/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
