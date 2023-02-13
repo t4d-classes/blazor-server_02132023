@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace ToolsApp.Core.Interfaces.Models
 {
-  public interface IColor
+  public interface INewColor
   {
-    int Id {  get; set; }
     string Name { get; set; }
     string HexCode { get; set; }
+  }
+
+  public interface IColor: INewColor
+  {
+    int Id { get; set; }
   }
 }

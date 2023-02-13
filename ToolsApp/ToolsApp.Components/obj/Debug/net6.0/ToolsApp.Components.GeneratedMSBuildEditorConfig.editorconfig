@@ -20,6 +20,10 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Q2FyVG9vbFxDYXJUYWJsZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/EricGreene/source/repos/blazor-server_02132023/ToolsApp/ToolsApp.Components/ColorTool/ColorForm.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29sb3JUb29sXENvbG9yRm9ybS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/EricGreene/source/repos/blazor-server_02132023/ToolsApp/ToolsApp.Components/ColorTool/ColorList.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29sb3JUb29sXENvbG9yTGlzdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 

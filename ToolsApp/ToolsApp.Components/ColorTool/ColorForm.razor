@@ -1,0 +1,43 @@
+﻿<form>
+  <label>
+    Name:
+    <input type="text" @bind="colorForm.Name" />
+  </label>
+  <label>
+    Hex Code:
+    <input type="text" @bind="colorForm.HexCode" />
+  </label>
+  <button type="button" @onclick="@addColor">@ButtonText</button>
+</form>
+
+@code {
+
+  [Parameter]
+  public string ButtonText { get; set; } = "Submit Color";
+
+  [Parameter]
+  public EventCallback<NewColor> OnSubmitColor { get; set; }
+
+
+  private ColorFormModel colorForm = new();
+
+
+  private async void addColor()
+  {
+    var newColor = new NewColor()
+      {
+        Name = colorForm.Name,
+        HexCode = colorForm.HexCode,
+      };
+
+    await OnSubmitColor.InvokeAsync(newColor);
+    colorForm = new();
+  }
+
+  class ColorFormModel
+  {
+    public string Name { get; set; }
+    public string HexCode { get; set; }
+  }
+
+}
