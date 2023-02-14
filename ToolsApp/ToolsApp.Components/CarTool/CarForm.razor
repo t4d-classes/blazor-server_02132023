@@ -1,4 +1,7 @@
-﻿<form>
+﻿@using ToolsApp.Components.CarTool.Models
+@using CarFormModel = ToolsApp.Components.CarTool.Models.CarForm
+
+<form>
   <label>
     Make:
     <input type="text" @bind="@carForm.Make" />
@@ -32,28 +35,12 @@
 
   private CarFormModel carForm = new();
 
+  private IMapper mapper = CarToolMapper.GetMapper();
+
   private async Task submitCar()
   {
-    await OnSubmitCar.InvokeAsync(new NewCar()
-      {
-        Make = carForm.Make,
-        Model = carForm.Model,
-        Year = carForm.Year,
-        Color = carForm.Color,
-        Price = carForm.Price,
-      });
+    await OnSubmitCar.InvokeAsync(mapper.Map<NewCar>(carForm));
     carForm = new();
-  }
-
-
-
-  class CarFormModel
-  {
-    public string Make { get; set; }
-    public string Model { get; set; }
-    public int Year { get; set; }
-    public string Color { get; set; }
-    public decimal Price { get; set; }
   }
 
 }

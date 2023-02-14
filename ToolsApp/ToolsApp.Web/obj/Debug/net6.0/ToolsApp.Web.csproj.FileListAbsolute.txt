@@ -49,3 +49,4 @@ C:\Users\EricGreene\source\repos\blazor-server_02132023\ToolsApp\ToolsApp.Web\ob
 C:\Users\EricGreene\source\repos\blazor-server_02132023\ToolsApp\ToolsApp.Web\obj\Debug\net6.0\ToolsApp.Web.pdb
 C:\Users\EricGreene\source\repos\blazor-server_02132023\ToolsApp\ToolsApp.Web\obj\Debug\net6.0\ToolsApp.Web.genruntimeconfig.cache
 C:\Users\EricGreene\source\repos\blazor-server_02132023\ToolsApp\ToolsApp.Web\obj\Debug\net6.0\ref\ToolsApp.Web.dll
+C:\Users\EricGreene\source\repos\blazor-server_02132023\ToolsApp\ToolsApp.Web\bin\Debug\net6.0\AutoMapper.dll

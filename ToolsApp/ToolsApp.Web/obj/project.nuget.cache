@@ -1,15 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "bP+DpPMOnAyVb3PlTYnjlrdHQOS94laeR67GRmQfWOQ7tVAVseRqm5EqQ0t/XhQFLCP1faA7d1MY3dvudRzxrA==",
+  "dgSpecHash": "nMxSBW49dGflD1pS40YqcvxpTEPQTCCYQ/1TR2xQbhjaM7w0pr+NvHYpYm9rA4apMyWh43ghj48cyfFLesDS8A==",
   "success": true,
   "projectFilePath": "C:\\Users\\EricGreene\\source\\repos\\blazor-server_02132023\\ToolsApp\\ToolsApp.Web\\ToolsApp.Web.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\EricGreene\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\EricGreene\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.13\\microsoft.aspnetcore.authorization.6.0.13.nupkg.sha512",
     "C:\\Users\\EricGreene\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.13\\microsoft.aspnetcore.components.6.0.13.nupkg.sha512",
     "C:\\Users\\EricGreene\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\6.0.13\\microsoft.aspnetcore.components.analyzers.6.0.13.nupkg.sha512",
     "C:\\Users\\EricGreene\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\6.0.13\\microsoft.aspnetcore.components.forms.6.0.13.nupkg.sha512",
     "C:\\Users\\EricGreene\\.nuget\\packages\\microsoft.aspnetcore.components.web\\6.0.13\\microsoft.aspnetcore.components.web.6.0.13.nupkg.sha512",
     "C:\\Users\\EricGreene\\.nuget\\packages\\microsoft.aspnetcore.metadata\\6.0.13\\microsoft.aspnetcore.metadata.6.0.13.nupkg.sha512",
+    "C:\\Users\\EricGreene\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\EricGreene\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.1\\microsoft.extensions.dependencyinjection.6.0.1.nupkg.sha512",
     "C:\\Users\\EricGreene\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\EricGreene\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.3\\microsoft.extensions.logging.abstractions.6.0.3.nupkg.sha512",

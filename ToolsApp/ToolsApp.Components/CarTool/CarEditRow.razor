@@ -1,4 +1,8 @@
-﻿<tr>
+﻿@using ToolsApp.Components.CarTool.Models
+@using CarFormModel = ToolsApp.Components.CarTool.Models.CarForm
+
+
+<tr>
   <td>@Car.Id</td>
   <td><input type="text" @bind="@carForm.Make" /></td>
   <td><input type="text" @bind="@carForm.Model" /></td>
@@ -6,8 +10,10 @@
   <td><input type="text" @bind="@carForm.Color" /></td>
   <td><input type="number" @bind="@carForm.Price" /></td>
   <td>
-    <button type="button">Save</button>
-    <button type="button">Cancel</button>
+    <button type="button" @onclick="@saveCar">Save</button>
+    <button type="button"
+      @onclick="@(async () => await OnCancelCar.InvokeAsync())">
+      Cancel</button>
   </td>
 </tr>
 
@@ -17,37 +23,25 @@
   public ICar Car { get; set; }
 
   [Parameter]
-  public EventCallback<int> OnEditCar { get; set; }
+  public EventCallback<ICar> OnSaveCar { get; set; }
 
   [Parameter]
-  public EventCallback<int> OnDeleteCar { get; set; }
+  public EventCallback OnCancelCar { get; set; }
 
   private CarFormModel carForm;
 
+  private IMapper mapper = CarToolMapper.GetMapper();
+
   protected override async Task OnInitializedAsync()
   {
-    carForm = new()
-      {
-        Make = Car.Make,
-            Model = Car.Model,
-        Year = Car.Year,
-        Color = Car.Color,
-        Price = Car.Price,
-      };
+    carForm = mapper.Map<ICar, CarFormModel>(Car);
   }
 
-  private async Task deleteCar()
+  private async Task saveCar()
   {
-    await OnDeleteCar.InvokeAsync(Car.Id);
-  }
-
-  class CarFormModel
-  {
-    public string Make { get; set; }
-    public string Model { get; set; }
-    public int Year { get; set; }
-    public string Color { get; set; }
-    public decimal Price { get; set; }
+    var car = mapper.Map<CarFormModel, Car>(carForm);
+    car.Id = Car.Id;
+    await OnSaveCar.InvokeAsync(car);
   }
 
 }
