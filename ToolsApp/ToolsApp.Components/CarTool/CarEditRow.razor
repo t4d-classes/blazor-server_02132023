@@ -1,0 +1,53 @@
+﻿<tr>
+  <td>@Car.Id</td>
+  <td><input type="text" @bind="@carForm.Make" /></td>
+  <td><input type="text" @bind="@carForm.Model" /></td>
+  <td><input type="number" @bind="@carForm.Year" /></td>
+  <td><input type="text" @bind="@carForm.Color" /></td>
+  <td><input type="number" @bind="@carForm.Price" /></td>
+  <td>
+    <button type="button">Save</button>
+    <button type="button">Cancel</button>
+  </td>
+</tr>
+
+@code {
+
+  [Parameter]
+  public ICar Car { get; set; }
+
+  [Parameter]
+  public EventCallback<int> OnEditCar { get; set; }
+
+  [Parameter]
+  public EventCallback<int> OnDeleteCar { get; set; }
+
+  private CarFormModel carForm;
+
+  protected override async Task OnInitializedAsync()
+  {
+    carForm = new()
+      {
+        Make = Car.Make,
+        Model = Car.Model,
+        Year = Car.Year,
+        Color = Car.Color,
+        Price = Car.Price,
+      };
+  }
+
+  private async Task deleteCar()
+  {
+    await OnDeleteCar.InvokeAsync(Car.Id);
+  }
+
+  class CarFormModel
+  {
+    public string Make { get; set; }
+    public string Model { get; set; }
+    public int Year { get; set; }
+    public string Color { get; set; }
+    public decimal Price { get; set; }
+  }
+
+}

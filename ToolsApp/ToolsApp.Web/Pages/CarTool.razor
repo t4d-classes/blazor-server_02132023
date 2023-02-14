@@ -4,7 +4,8 @@
 
 <ToolHeader HeaderText="Car Tool" />
 
-<CarTable Cars="@cars" OnDeleteCar="@deleteCar"></CarTable>
+<CarTable Cars="@cars" EditCarId="@editCarId"
+  OnEditCar="@editCar" OnDeleteCar="@deleteCar"></CarTable>
 
 <CarForm ButtonText="Add Car" OnSubmitCar="@addCar" />
 
@@ -16,6 +17,7 @@
     new Car() { Id = 2, Make="Tesla", Model="S", Year=2022, Color="Red", Price=115000 },
   };
 
+  private int editCarId = -1;
 
   private void addCar(NewCar newCar)
   {
@@ -28,6 +30,11 @@
         Color = newCar.Color,
         Price = newCar.Price,
       });
+  }
+
+  private void editCar(int carId)
+  {
+    editCarId = carId;
   }
 
   private void deleteCar(int carId)
