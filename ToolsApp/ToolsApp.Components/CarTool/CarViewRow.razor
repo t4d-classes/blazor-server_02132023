@@ -6,7 +6,7 @@
   <td>@Car.Color</td>
   <td>@Car.Price</td>
   <td>
-    <button type="button" @onclick"@(async () => await OnEditCarInvoke.async(Car.Id))">
+    <button type="button" @onclick="@(async () => await OnEditCar.InvokeAsync(Car.Id))">
       Edit
      </button>
     <button type="button" @onclick="@deleteCar">Delete</button>
