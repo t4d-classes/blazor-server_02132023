@@ -4,13 +4,13 @@
 
 <ToolHeader HeaderText="Car Tool" />
 
-<CarTable Cars="@cars"></CarTable>
+<CarTable Cars="@cars" OnDeleteCar="@deleteCar"></CarTable>
 
 <CarForm ButtonText="Add Car" OnSubmitCar="@addCar" />
 
 @code {
 
-  
+
 
   private List<ICar> cars = new List<ICar>()
   {
@@ -30,6 +30,11 @@
         Color = newCar.Color,
         Price = newCar.Price,
       });
+  }
+
+  private void deleteCar(int carId)
+  {
+    cars.Remove(cars.Find(c => c.Id == carId));
   }
 
 
