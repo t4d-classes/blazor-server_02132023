@@ -11,6 +11,12 @@
     </tr>
   </thead>
   <tbody>
+    @if(!Cars.Any())
+    {
+      <tr>
+        <td colspan="7">No cars.</td>
+      </tr>
+    }
     @foreach (var car in Cars)
     {
       <CarViewRow Car="@car" OnDeleteCar="@deleteCar" />
