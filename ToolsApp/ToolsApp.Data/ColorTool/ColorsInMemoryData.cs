@@ -2,7 +2,6 @@
 
 using ToolsApp.Core.Interfaces.Data;
 using ToolsApp.Core.Interfaces.Models;
-using ToolsApp.Models;
 
 using ColorModel = ToolsApp.Models.Color;
 using ColorDataModel = ToolsApp.Data.Models.Color;
