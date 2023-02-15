@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "8LKF+pbvt6W4lVW4J0E4//ZD8snloErO3r7vEW+lMJW5zH643NThwdCVmLhgQsCAROKbF8DBGkEoM6xkWJWjfg==",
+  "dgSpecHash": "pWv5UYtSj8HLgdsBM1yJzc7W7ZmDsSa/1f+XRGhky0tTc2sjFz2L/WkJZxhuPz9FVZmOBcg9qiPpUdHlo5H4vQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\EricGreene\\source\\repos\\blazor-server_02132023\\ToolsApp\\ToolsApp.Data\\ToolsApp.Data.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\EricGreene\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\EricGreene\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }
