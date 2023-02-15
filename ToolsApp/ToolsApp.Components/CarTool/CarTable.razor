@@ -35,7 +35,7 @@
 @code {
 
   [Parameter]
-  public List<ICar> Cars { get; set; } = new List<ICar>();
+  public IEnumerable<ICar> Cars { get; set; } = new List<ICar>();
 
   [Parameter]
   public int EditCarId { get; set; } = -1;

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using ToolsApp.Core.Interfaces.Data;
 using ToolsApp.Data.ColorTool;
+using ToolsApp.Data.CarTool;
 using ToolsApp.Web.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +13,7 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 
 builder.Services.AddSingleton<IColorsData, ColorsInMemoryData>();
+builder.Services.AddSingleton<ICarsData, CarsInMemoryData>();
 
 var app = builder.Build();
 
