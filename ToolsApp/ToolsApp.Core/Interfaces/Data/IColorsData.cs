@@ -8,6 +8,8 @@ public interface IColorsData
 {
   Task<IEnumerable<IColor>> All();
   Task<IColor> Append(INewColor color);
+
+  Task Remove(int colorId);
 }
 
 

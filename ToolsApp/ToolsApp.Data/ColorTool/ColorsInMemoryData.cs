@@ -48,4 +48,10 @@ public class ColorsInMemoryData : IColorsData
       _mapper.Map<ColorDataModel, ColorModel>(colorDataModel) as IColor
      );
   }
+
+  public Task Remove(int colorId)
+  {
+    _colors.RemoveAt(_colors.FindIndex(c => c.Id == colorId));
+    return Task.CompletedTask;
+  }
 }

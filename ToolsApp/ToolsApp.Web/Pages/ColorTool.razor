@@ -7,7 +7,7 @@
 
 <ToolHeader HeaderText="Color Tool"></ToolHeader>
 
-<ColorList Colors="@colors"></ColorList>
+<ColorList Colors="@colors" OnDeleteColor="@deleteColor"></ColorList>
 
 <ColorForm ButtonText="Add Color"
   OnSubmitColor="@addColor"></ColorForm>
@@ -26,6 +26,12 @@
   private async Task addColor(NewColor newColor)
   {
     await colorsData.Append(newColor);
+    colors = await colorsData.All();
+  }
+
+  private async Task deleteColor(int colorId)
+  {
+    await colorsData.Remove(colorId);
     colors = await colorsData.All();
   }
 
