@@ -25,7 +25,8 @@ builder.Services.AddSingleton<WeatherForecastService>();
 
 //builder.Services.AddSingleton<IColorsData, ColorsInMemoryData>();
 builder.Services.AddScoped<IColorsData, ColorsEFCoreData>();
-builder.Services.AddSingleton<ICarsData, CarsInMemoryData>();
+//builder.Services.AddSingleton<ICarsData, CarsInMemoryData>();
+builder.Services.AddScoped<ICarsData, CarsEFCoreData>();
 
 var app = builder.Build();
 

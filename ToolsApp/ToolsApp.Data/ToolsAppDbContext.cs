@@ -8,6 +8,6 @@ public class ToolsAppDbContext: DbContext
 {
   public ToolsAppDbContext(DbContextOptions<ToolsAppDbContext> options): base(options) {  }
 
-
-  public DbSet<Color> Colors { get; set; }
+  public DbSet<Color>? Colors { get; set; }
+  public DbSet<Car>? Cars { get; set; }
 }

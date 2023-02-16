@@ -28,6 +28,11 @@ public class ColorsEFCoreData : IColorsData
 
   public async Task<IEnumerable<IColor>> All()
   {
+    if (_toolsAppDbContext.Colors is null)
+    {
+      throw new NullReferenceException("colors database set cannot be null");
+    }
+
     return await _toolsAppDbContext
       .Colors
       .Select(colorDataModel =>_mapper.Map<ColorDataModel, ColorModel>(colorDataModel))
@@ -48,10 +53,17 @@ public class ColorsEFCoreData : IColorsData
 
   public async Task Remove(int colorId)
   {
-    var colorDataModel = await _toolsAppDbContext.Colors.FindAsync(colorId);
+    if (_toolsAppDbContext.Colors is null)
+    {
+      throw new NullReferenceException("colors database set cannot be null");
+    }
 
-    _toolsAppDbContext.Colors.Remove(colorDataModel);
-    await _toolsAppDbContext.SaveChangesAsync();
-    _toolsAppDbContext.ChangeTracker.Clear();
+    var colorDataModel = await _toolsAppDbContext.Colors.FindAsync(colorId);
+    if (colorDataModel is not null) {
+      _toolsAppDbContext.Colors.Remove(colorDataModel);
+      await _toolsAppDbContext.SaveChangesAsync();
+      _toolsAppDbContext.ChangeTracker.Clear();
+    }
+
   }
 }
