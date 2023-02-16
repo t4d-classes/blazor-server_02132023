@@ -1,0 +1,55 @@
+﻿@typeparam TItem
+@typeparam TItemId
+
+<header>
+  @Header
+</header>
+<ul>
+  @if (Items.Any() && ItemTemplate is not null) {
+    @foreach (var item in Items)
+    {
+      <li>
+        @ItemTemplate(item)
+        <button type="button" @onclick="@(async () => await doAction(item))">
+            @ActionButtonText
+        </button>
+      </li>
+    }
+  } else {
+    <li>@EmptyMessage</li>
+  }
+</ul>
+
+@code {
+
+  [Parameter]
+  public string ActionButtonText { get; set; } = "Select";
+
+  [Parameter]
+  public RenderFragment EmptyMessage { get; set; } =@<span>No Items</span>;
+
+  [Parameter]
+  public RenderFragment Header { get; set; } =@<h3>Items</h3>;
+
+  [Parameter]
+  public RenderFragment<TItem>? ItemTemplate { get; set; }
+
+  [Parameter]
+  public IEnumerable<TItem> Items { get; set; } = new List<TItem>();
+
+  [Parameter]
+  public Func<TItem, TItemId>? GetId { get; set;  }
+
+  [Parameter]
+  public EventCallback<TItemId> OnItemAction { get; set; }
+
+  private async Task doAction(TItem item)
+  {
+    if (GetId is not null)
+    {
+      await OnItemAction.InvokeAsync(GetId(item));
+    }
+  }
+
+}
+

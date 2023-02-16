@@ -1,0 +1,52 @@
+﻿@page "/color-tool2"
+
+@using ToolsApp.Components.ColorTool
+@using ToolsApp.Core.Interfaces.Data
+
+@inject IColorsData colorsData
+
+<ToolHeader HeaderText="Color Tool"></ToolHeader>
+
+<ActionDataList Items="@colors" TItem="IColor" TItemId="int"
+   OnItemAction="deleteColor" ActionButtonText="Delete"
+   GetId="@(c => c.Id)">
+  <Header>
+    <h3>Color List</h3>
+  </Header>
+  <EmptyMessage>
+    <span>No Colors</span>
+  </EmptyMessage>
+  <ItemTemplate>
+    @context.HexCode
+  </ItemTemplate>
+</ActionDataList>
+
+<ColorForm ButtonText="Add Color"
+  OnSubmitColor="@addColor"></ColorForm>
+
+
+
+@code {
+
+  private IEnumerable<IColor> colors = new List<IColor>();
+
+  protected override async Task OnInitializedAsync()
+  {
+    colors = await colorsData.All();
+  }
+
+  private async Task addColor(NewColor newColor)
+  {
+    await colorsData.Append(newColor);
+    colors = await colorsData.All();
+  }
+
+  private async Task deleteColor(int colorId)
+  {
+    await colorsData.Remove(colorId);
+    colors = await colorsData.All();
+  }
+
+
+
+}
