@@ -25,13 +25,14 @@ builder.Services.AddScoped<ToolsAppDapperContext>();
 
 builder.Services.AddSingleton<WeatherForecastService>();
 
-builder.Services.AddSingleton<ColorsDataMapper>();
+builder.Services.AddSingleton<CarsDataMapper>();
 
 //builder.Services.AddSingleton<IColorsData, ColorsInMemoryData>();
 //builder.Services.AddScoped<IColorsData, ColorsEFCoreData>();
 builder.Services.AddScoped<IColorsData, ColorsDapperData>();
 //builder.Services.AddSingleton<ICarsData, CarsInMemoryData>();
-builder.Services.AddScoped<ICarsData, CarsEFCoreData>();
+//builder.Services.AddScoped<ICarsData, CarsEFCoreData>();
+builder.Services.AddScoped<ICarsData, CarsDapperData>();
 
 var app = builder.Build();
 

@@ -19,7 +19,7 @@ public class ColorsInMemoryData : IColorsData
     new() { Id = 3, Name = "blue", HexCode="0000ff"},
   };
 
-  public ColorsInMemoryData(ColorsDataMapper mapper) {
+  public ColorsInMemoryData(CarsDataMapper mapper) {
     _mapper = mapper.CreateMapper();
   }
 
