@@ -19,13 +19,8 @@ public class ColorsInMemoryData : IColorsData
     new() { Id = 3, Name = "blue", HexCode="0000ff"},
   };
 
-  public ColorsInMemoryData() {
-    var mapperConfig = new MapperConfiguration(config => {
-      config.CreateMap<INewColor, ColorDataModel>();
-      config.CreateMap<ColorDataModel, ColorModel>();
-    });
-
-    _mapper = mapperConfig.CreateMapper();
+  public ColorsInMemoryData(ColorsDataMapper mapper) {
+    _mapper = mapper.CreateMapper();
   }
 
   public Task<IEnumerable<IColor>> All()

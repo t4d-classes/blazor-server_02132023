@@ -14,16 +14,12 @@ public class ColorsEFCoreData : IColorsData
   private IMapper _mapper;
   private ToolsAppDbContext _toolsAppDbContext;
 
-  public ColorsEFCoreData(ToolsAppDbContext toolsAppDbContext)
+  public ColorsEFCoreData(
+    ColorsDataMapper mapper,
+    ToolsAppDbContext toolsAppDbContext)
   {
     _toolsAppDbContext = toolsAppDbContext;
-
-    var mapperConfig = new MapperConfiguration(config => {
-      config.CreateMap<INewColor, ColorDataModel>();
-      config.CreateMap<ColorDataModel, ColorModel>();
-    });
-
-    _mapper = mapperConfig.CreateMapper();
+    _mapper = mapper.CreateMapper();
   }
 
   public async Task<IEnumerable<IColor>> All()
