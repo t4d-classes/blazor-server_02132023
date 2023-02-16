@@ -1,16 +1,21 @@
 ﻿@typeparam TItem
 @typeparam TItemId
 
-<header>
-  @Header
-</header>
+@if (Header is not null)
+{
+  <header>
+    @Header
+  </header>
+}
 <ul>
   @if (Items.Any() && ItemTemplate is not null) {
     @foreach (var item in Items)
     {
       <li>
         @ItemTemplate(item)
-        <button type="button" @onclick="@(async () => await doAction(item))">
+        <button type="button" @onclick="@(async () => await doAction(item))"
+            style="background-color: @uiTheme?.DangerButton?.BackgroundColor;
+            color:@uiTheme?.DangerButton?.TextColor">
             @ActionButtonText
         </button>
       </li>
@@ -22,6 +27,10 @@
 
 @code {
 
+  [CascadingParameter(Name="UITheme")]
+  private UITheme? uiTheme { get; set; }
+
+
   [Parameter]
   public string ActionButtonText { get; set; } = "Select";
 
@@ -29,7 +38,7 @@
   public RenderFragment EmptyMessage { get; set; } =@<span>No Items</span>;
 
   [Parameter]
-  public RenderFragment Header { get; set; } =@<h3>Items</h3>;
+  public RenderFragment? Header { get; set; }
 
   [Parameter]
   public RenderFragment<TItem>? ItemTemplate { get; set; }
