@@ -1,4 +1,5 @@
 ﻿@page "/color-tool"
+@page "/color-tool4"
 
 @using ToolsApp.Core.Interfaces.Data
 @using ToolsApp.Components.ColorTool
@@ -13,7 +14,7 @@
 <ColorForm ButtonText="Add Color" OnSubmitColor="@AddColor" />
 
 
-<button type="button" id="refreshColorsButton">Refresh Color</button>
+<button type="button" id="refreshColorsButton">Refresh Colors</button>
 
 @code {
 
@@ -24,7 +25,7 @@
 
   private string colorToolHeader = "Color Tool";
 
-  private DotNetObjectReference<IColorsData> colorsDataRef;
+  private DotNetObjectReference<IColorsData>? colorsDataRef;
 
   private IEnumerable<IColor> colors { get; set; } = new List<IColor>();
 
@@ -42,7 +43,9 @@
     colorsDataRef = DotNetObjectReference.Create(colorsData);
 
     if (firstRender) {
-      await JS.InvokeVoidAsync("app.setupColorsRefresh", colorsDataRef);
+      await JS.InvokeVoidAsync(
+        "app.setupColorsRefresh",
+        colorsDataRef);
       _firstRender = false;
       await RefreshColors();
       StateHasChanged();
@@ -66,6 +69,7 @@
 
   public async Task DeleteColor(int colorId)
   {
+    // window.confirm("Are you sure you want to delete the color?")
     if (await JS.InvokeAsync<bool>("confirm", "Are you sure you want to delete the color?"))
     {
       await colorsData.Remove(colorId);

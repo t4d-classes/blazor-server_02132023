@@ -10,7 +10,7 @@ window.app = {
     }
   },
 
-  setupColorsRefresh(dotNetHelper /* colors data service */) {
+  setupColorsRefresh(colorsDataService /* colors data service */) {
 
     console.log("setup colors refresh")
 
@@ -18,7 +18,7 @@ window.app = {
 
       console.log("called colors refresh")
 
-      const colors = await dotNetHelper.invokeMethodAsync("All");
+      const colors = await colorsDataService.invokeMethodAsync("All");
       console.log(colors);
     });
 
