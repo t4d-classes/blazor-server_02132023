@@ -2,6 +2,7 @@
 
 @using ToolsApp.Components.ColorTool
 @using ToolsApp.Core.Interfaces.Data
+@using ToolsApp.Components.Shared.TabDialog
 
 @inject IColorsData colorsData
 
@@ -17,16 +18,41 @@
     <span>No Colors</span>
   </EmptyMessage>
   <ItemTemplate>
-    @context.HexCode
+    @context.Name - @context.HexCode
   </ItemTemplate>
 </ActionDataList>
 
 <ColorForm ButtonText="Add Color"
   OnSubmitColor="@addColor"></ColorForm>
 
+<br /><br />
+
+<TabSet>
+  <Tab Title="Tab 1">
+    <p>
+      Tab 1 Content
+    </p>
+    <div>
+      <input type="checkbox" @bind="showThirdTab" />
+      Toggle third tab
+    </div>
+  </Tab> 
+  <Tab Title="Tab 2">
+    <p>Tab 2 Content</p>
+  </Tab>
+  @if (showThirdTab)
+  {
+    <Tab Title="Tab 3">
+      <p>Tab 3 Content</p>
+    </Tab>
+  }
+</TabSet>
+
 
 
 @code {
+
+  private bool showThirdTab = false;
 
   private IEnumerable<IColor> colors = new List<IColor>();
 

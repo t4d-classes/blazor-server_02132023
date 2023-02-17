@@ -1,0 +1,29 @@
+﻿@implements ITab
+
+<li>
+  <a @onclick="activateTab" role="button"
+     class="nav-link @titleCssClass">
+    @Title
+  </a>
+</li>
+
+@code {
+
+  [CascadingParameter]
+  public TabSet? ContainerTabSet { get; set; }
+
+  [Parameter]
+  public RenderFragment? ChildContent { get; set; }
+
+  private string? titleCssClass =>
+    ContainerTabSet?.ActiveTab == this ? "active" : null;
+
+  [Parameter]
+  public string? Title { get; set; }
+
+  private void activateTab()
+  {
+    ContainerTabSet?.SetActiveTab(this);
+  }
+
+}

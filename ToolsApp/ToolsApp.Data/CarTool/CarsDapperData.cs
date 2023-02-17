@@ -35,13 +35,32 @@ namespace ToolsApp.Data.CarTool
     {
       using var con = _dataContext.CreateConnection();
 
-      var carData = await con.QueryAsync<CarDataModel>(
-        "[InsertCar]",
-        car,
-        commandType: System.Data.CommandType.StoredProcedure
-      );
+      var parameters = new {
+        car.Make,
+        car.Model,
+        car.Year,
+        car.Color,
+        car.Price
+      };
+      var sql = (
+        "insert into Car (Make, Model, Year, Color, Price) values (@Make, @Model, @Year, @Color, @Price);" +
+        "select Id, Make, Model, Year, Color, Price from Car WHERE Id = SCOPE_IDENTITY()"
+       );
+      var carData = await con.QueryAsync<CarDataModel>(sql, parameters);
 
-      return mapper.Map<CarDataModel, CarModel>(carData.Single()) as ICar;
+      var insertedCarModel = carData.SingleOrDefault();
+
+      if (insertedCarModel is null) {
+        throw new NullReferenceException("inserted car model cannot be null");
+      }
+
+      //var carData = await con.QueryAsync<CarDataModel>(
+      //  "[InsertCar]",
+      //  car,
+      //  commandType: System.Data.CommandType.StoredProcedure
+      //);
+
+      return mapper.Map<CarDataModel, CarModel>(insertedCarModel) as ICar;
     }
 
     public async Task<ICar> One(int carId)
