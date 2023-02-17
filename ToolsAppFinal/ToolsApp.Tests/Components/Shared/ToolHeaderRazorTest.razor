@@ -1,0 +1,37 @@
+﻿@inherits TestContext
+
+@code {
+
+  [Fact]
+  public void ToolHeaderComponentRendersCorrectly()
+  {
+    // Arrange
+
+    // Act
+    var cut = Render(@<ToolHeader />);
+
+    // Assert
+    cut.MarkupMatches(
+      @<header>
+        <h3>The Tool</h3>
+        </header>
+  );
+  }
+
+  [Fact]
+  public void ColorToolHeaderComponentRendersCorrectly()
+  {
+    // Arrange
+    var headerText = "Color Tool";
+
+    // Act
+    var cut = Render(@<ToolHeader HeaderText="@headerText" />);
+
+    // Assert
+    cut.MarkupMatches(
+      @<header>
+        <h3>@headerText</h3>
+      </header>);
+  }  
+
+}
