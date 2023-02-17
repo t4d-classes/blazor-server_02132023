@@ -1,20 +1,14 @@
-﻿<EditForm Model="@colorForm" OnValidSubmit="@submitColor">
-
-  <DataAnnotationsValidator />
-  <ValidationSummary />
-
+﻿<form>
   <label>
     Name:
-    <InputText @bind-Value="@colorForm.Name" />
-    <ValidationMessage For="@(()=> colorForm.Name)" />
+    <input type="text" @bind="colorForm.Name" />
   </label>
   <label>
     Hex Code:
-    <InputText @bind-Value="@colorForm.HexCode" />
-    <ValidationMessage For="@(()=> colorForm.HexCode)" />
+    <input type="text" @bind="colorForm.HexCode" />
   </label>
-  <button>@ButtonText</button>
-</EditForm>
+  <button type="button" @onclick="@addColor">@ButtonText</button>
+</form>
 
 @code {
 
@@ -28,7 +22,7 @@
   private ColorFormModel colorForm = new();
 
 
-  private async Task submitColor()
+  private async void addColor()
   {
     var newColor = new NewColor()
       {
@@ -42,7 +36,6 @@
 
   class ColorFormModel
   {
-    [Required]
     public string Name { get; set; }
     public string HexCode { get; set; }
   }

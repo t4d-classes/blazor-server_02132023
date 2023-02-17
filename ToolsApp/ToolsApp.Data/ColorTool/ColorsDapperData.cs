@@ -15,7 +15,7 @@ public class ColorsDapperData : IColorsData
   private ToolsAppDapperContext _toolsAppDapperContext;
 
   public ColorsDapperData(
-    CarsDataMapper mapper,
+    ColorsDataMapper mapper,
     ToolsAppDapperContext toolsAppDapperContext)
   {
     _toolsAppDapperContext = toolsAppDapperContext;

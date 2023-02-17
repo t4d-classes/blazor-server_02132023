@@ -25,7 +25,7 @@ builder.Services.AddScoped<ToolsAppDapperContext>();
 
 builder.Services.AddSingleton<WeatherForecastService>();
 
-builder.Services.AddSingleton<CarsDataMapper>();
+builder.Services.AddSingleton<ColorsDataMapper>();
 
 //builder.Services.AddSingleton<IColorsData, ColorsInMemoryData>();
 //builder.Services.AddScoped<IColorsData, ColorsEFCoreData>();

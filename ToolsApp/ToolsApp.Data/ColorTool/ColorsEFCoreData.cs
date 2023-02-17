@@ -15,7 +15,7 @@ public class ColorsEFCoreData : IColorsData
   private ToolsAppDbContext _toolsAppDbContext;
 
   public ColorsEFCoreData(
-    CarsDataMapper mapper,
+    ColorsDataMapper mapper,
     ToolsAppDbContext toolsAppDbContext)
   {
     _toolsAppDbContext = toolsAppDbContext;

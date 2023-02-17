@@ -7,7 +7,7 @@ using ColorDataModel = ToolsApp.Data.Models.Color;
 
 namespace ToolsApp.Data.ColorTool;
 
-public class CarsDataMapper
+public class ColorsDataMapper
 {
 
   public IMapper CreateMapper()
