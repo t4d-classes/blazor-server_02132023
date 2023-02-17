@@ -1,29 +1,44 @@
 ﻿@using ToolsApp.Components.CarTool.Models
 @using CarFormModel = ToolsApp.Components.CarTool.Models.CarForm
 
-<form>
+<EditForm Model="@carForm" OnValidSubmit="@submitCar">
+
+  <DataAnnotationsValidator />
+  <ValidationSummary />
+
   <label>
     Make:
-    <input type="text" @bind="@carForm.Make" />
+    <InputText @bind-Value="@carForm.Make" />
+    <ValidationMessage For="@(() => carForm.Make)" />
   </label>
+
   <label>
     Model:
-    <input type="text" @bind="@carForm.Model" />
+    <InputText @bind-Value="@carForm.Model" />
+    <ValidationMessage For="@(() => carForm.Model)" />
   </label>
+
   <label>
     Year:
-    <input type="number" @bind="@carForm.Year" />
+    <InputNumber @bind-Value="@carForm.Year" />
+    <ValidationMessage For="@(() => carForm.Year)" />
   </label>
+
   <label>
     Color:
-    <input type="text" @bind="@carForm.Color" />
+    <InputText @bind-Value="@carForm.Color" />
+    <ValidationMessage For="@(() => carForm.Color)" />
   </label>
+
   <label>
     Price:
-    <input type="number" @bind="@carForm.Price" />
+    <InputNumber @bind-Value="@carForm.Price" />
+    <ValidationMessage For="@(() => carForm.Price)" />
   </label>
-  <button type="button" @onclick="@submitCar">@ButtonText</button>
-</form>
+
+  <button>@ButtonText</button>
+
+</EditForm>
 
 @code {
 
